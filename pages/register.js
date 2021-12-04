@@ -26,11 +26,14 @@ function Register() {
     e.preventDefault();
     try {
       setLoading(true);
-      const { data } = await axios.post(`/api/register`, {
-        name,
-        email,
-        password,
-      });
+      const { data } = await axios.post(
+        `https://henrynd.herokuapp.com/api/register`,
+        {
+          name,
+          email,
+          password,
+        }
+      );
       toast.success("Regiter successfully");
       setLoading(false);
     } catch (error) {

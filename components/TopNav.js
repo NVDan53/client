@@ -49,7 +49,9 @@ const TopNav = () => {
     });
     // clear localstorage
     window.localStorage.removeItem("user");
-    const { data } = await axios.get("/api/logout");
+    const { data } = await axios.get(
+      "https://henrynd.herokuapp.com/api/logout"
+    );
     toast(data.message);
     router.push("/login");
   };

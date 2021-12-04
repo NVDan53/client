@@ -31,7 +31,10 @@ function forgotPassword() {
     try {
       setLoading(true);
 
-      const { data } = await axios.post("/api/forgot-password", { email });
+      const { data } = await axios.post(
+        "https://henrynd.herokuapp.com/api/forgot-password",
+        { email }
+      );
       setSuccess(true);
       toast("Check your email from the secret code");
       setLoading(false);
@@ -45,11 +48,14 @@ function forgotPassword() {
     e.preventDefault();
     try {
       setLoading(true);
-      const res = await axios.post("/api/reset-password", {
-        email,
-        code,
-        newPassword,
-      });
+      const res = await axios.post(
+        "https://henrynd.herokuapp.com/api/reset-password",
+        {
+          email,
+          code,
+          newPassword,
+        }
+      );
       toast("Reset password successful");
       setLoading(false);
     } catch (error) {

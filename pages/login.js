@@ -29,10 +29,13 @@ function Login() {
     e.preventDefault();
     try {
       setLoading(true);
-      const { data } = await axios.post(`/api/login`, {
-        email,
-        password,
-      });
+      const { data } = await axios.post(
+        `https://henrynd.herokuapp.com/api/login`,
+        {
+          email,
+          password,
+        }
+      );
       dispatch({
         type: "LOGIN",
         payload: data,
@@ -55,9 +58,12 @@ function Login() {
     console.log(response);
     try {
       setLoading(true);
-      const res = await axios.post("/api/google_login", {
-        tokenId: response.tokenId,
-      });
+      const res = await axios.post(
+        "https://henrynd.herokuapp.com/api/google_login",
+        {
+          tokenId: response.tokenId,
+        }
+      );
 
       dispatch({
         type: "LOGIN",
