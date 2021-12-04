@@ -54,32 +54,32 @@ function Login() {
     }
   };
 
-  const responseGoogle = async (response) => {
-    console.log(response);
-    try {
-      setLoading(true);
-      const res = await axios.post(
-        "https://henrynd.herokuapp.com/api/google_login",
-        {
-          tokenId: response.tokenId,
-        }
-      );
+  // const responseGoogle = async (response) => {
+  //   console.log(response);
+  //   try {
+  //     setLoading(true);
+  //     const res = await axios.post(
+  //       "https://henrynd.herokuapp.com/api/google_login",
+  //       {
+  //         tokenId: response.tokenId,
+  //       }
+  //     );
 
-      dispatch({
-        type: "LOGIN",
-        payload: res.data,
-      });
+  //     dispatch({
+  //       type: "LOGIN",
+  //       payload: res.data,
+  //     });
 
-      toast.success("Login successfully");
-      setLoading(false);
+  //     toast.success("Login successfully");
+  //     setLoading(false);
 
-      window.localStorage.setItem("user", JSON.stringify(res.data));
+  //     window.localStorage.setItem("user", JSON.stringify(res.data));
 
-      router.push("/");
-    } catch (error) {
-      console.log(error.response.data.msg);
-    }
-  };
+  //     router.push("/");
+  //   } catch (error) {
+  //     console.log(error.response.data.msg);
+  //   }
+  // };
   return (
     <>
       <h1 className="jumbotron text-center bg-primary square">Login</h1>
@@ -110,7 +110,7 @@ function Login() {
             {loading ? <SyncOutlined spin /> : "Submit"}
           </button>
 
-          <div className="social">
+          {/* <div className="social">
             <GoogleLogin
               clientId="1074929433721-7hqftlfff4ap48da2l4oo3vk1v2l9rtq.apps.googleusercontent.com"
               buttonText="Login"
@@ -118,8 +118,8 @@ function Login() {
               onFailure={responseGoogle}
               cookiePolicy={"single_host_origin"}
             />
-            ,
-          </div>
+            
+          </div> */}
 
           <p className="text-center p-3">
             Already login?{" "}
